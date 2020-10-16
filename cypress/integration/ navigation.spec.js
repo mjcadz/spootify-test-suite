@@ -1,4 +1,4 @@
-describe("App navigation", () => {
+describe('App navigation', () => {
 
   const navFilters = [
     {route: '/playlists', mainContentChild: '.playlists', buttonText: 'Playlists'},
@@ -10,9 +10,9 @@ describe("App navigation", () => {
 
   beforeEach(() => {
     cy.visit('/')
-  })
+  });
 
-  it("default route is discover", () => {
+  it('default route is discover', () => {
     cy.url().should('eq', Cypress.config().baseUrl + '/discover')
   });
 
