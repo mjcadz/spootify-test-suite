@@ -1,0 +1,13 @@
+{
+  "name": "spootify-test-suite",
+  "version": "1.0.0",
+  "description": "Testing Code Challenge - Test Automation Engineer",
+  "scripts": {
+    "cypress": "cypress open"
+  },
+  "author": "Michael Cadzow",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^5.4.0"
+  }
+}
