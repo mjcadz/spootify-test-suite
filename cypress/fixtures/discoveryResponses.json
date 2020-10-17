@@ -1,0 +1,32 @@
+{
+  "albumResponse" : {
+    "albums" : {
+      "items" : [ {
+        "name" : "Test release",
+        "images" : [ {
+          "url" : "https://developer.spotify.com/assets/branding-guidelines/icon4@2x.png"
+        } ]
+      } ]
+    }
+  },
+  "playlistResponse" : {
+    "playlists" : {
+      "items" : [ {
+        "name" : "Test playlist",
+        "images" : [ {
+          "url" : "https://developer.spotify.com/assets/branding-guidelines/icon4@2x.png"
+        } ]
+      } ]
+    }
+  },
+  "categoryResponse" : {
+    "categories" : {
+      "items" : [ {
+        "name" : "Test category",
+        "icons" : [ {
+          "url" : "https://developer.spotify.com/assets/branding-guidelines/icon4@2x.png"
+        } ]
+      } ]
+    }
+  }
+}
