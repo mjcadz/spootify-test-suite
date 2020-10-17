@@ -12,11 +12,15 @@ describe('App navigation', () => {
     cy.visit('/')
   });
 
-  it('default route is discover', () => {
+  //check out of box state of app
+  it('default route', () => {
     cy.url().should('eq', Cypress.config().baseUrl + '/discover')
+
+    cy.title().should('eq', 'Spootify')
   });
 
-  it('side nav buttons work', () => {
+  //check side nav buttons open correct route
+  it('side nav buttons', () => {
     cy.wrap(navFilters)
       .each(filter => {
         cy.get('p').contains(filter.buttonText)
@@ -33,6 +37,7 @@ describe('App navigation', () => {
       })
   });
 
+  //check routes load actual content from components
   it('routes have content', () => {
     cy.wrap(navFilters)
       .each(filter => {
