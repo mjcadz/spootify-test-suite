@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "Testing Code Challenge - Test Automation Engineer",
   "scripts": {
-    "cypress": "cypress open"
+    "e2e": "cypress run --browser chrome",
+    "e2e:gui": "cypress open",
+    "e2e:record": "cypress run --record --browser chrome",
+    "e2e:chrome": "cypress run --browser chrome",
+    "e2e:edge": "cypress run --browser edge",
+    "e2e:firefox": "cypress run --browser firefox",
+    "e2e:headless": "cypress run"
   },
   "author": "Michael Cadzow",
   "license": "ISC",

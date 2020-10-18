@@ -13,6 +13,7 @@ describe('Responsiveness', () => {
       {width: 1000, sidebarWidth: 225, titles: 'be.visible'},
     ]
     
+    //cycle through viewports
     cy.wrap(viewports)
       .each(viewport =>{
         cy.viewport(viewport.width, 660)
@@ -36,6 +37,7 @@ describe('Responsiveness', () => {
       {width: 450, album: 'not.be.visible', albumTitle: 'not.be.visible', controls: 'be.visible', actions: 'not.be.visible', actionMenu: 'be.visible'},
     ]
     
+    //cycle through viewports
     cy.wrap(viewports)
       .each(viewport =>{
         cy.viewport(viewport.width, 660)
