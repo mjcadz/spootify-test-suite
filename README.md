@@ -23,4 +23,4 @@ make sure the Spootify application is running and hosted at http://localhost:300
 
 ## Reports
 The reports for these tests can be found on the [Spootify Cypress Dashboard](https://dashboard.cypress.io/projects/hpu3z2/).  
-Running ```yarn e2e:record``` saves the test data to the dashboard.
+Running a script with 'record' saves the test data to the dashboard.

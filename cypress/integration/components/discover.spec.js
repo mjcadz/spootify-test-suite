@@ -35,16 +35,18 @@ describe('Discover component', () => {
     // cycle through each row
     cy.wrap(rows)
       .each(row =>{
-        // check header, title and image is loaded
+        // check header is present
         cy.get(row.id)
           .parent()
           .find('h2')
           .should('contain', row.heading)
 
+        // check title matches response
         cy.get(row.id)
           .find('.discover-item__title')
           .should('contain', row.title)
 
+        // check the picture has loaded
         cy.get(row.id)
           .find('.discover-item__art')
           .scrollIntoView()

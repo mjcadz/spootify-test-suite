@@ -1,4 +1,4 @@
-// Tests for responsive components. doesn't take into account set viewport
+// Tests for responsive components. doesn't take into account chosen viewport
 describe('Responsiveness', () => {
 
   beforeEach(() => {
@@ -16,11 +16,14 @@ describe('Responsiveness', () => {
     //cycle through viewports and check appearance
     cy.wrap(viewports)
       .each(viewport =>{
+        // set width
         cy.viewport(viewport.width, 660)
 
+        // check title visibility
         cy.get('p').contains('Discover')
           .should(viewport.titles)
 
+        // check sidebar width
         cy.get('.sidebar')
           .invoke('width')
           .should('eq', viewport.sidebarWidth)
@@ -40,20 +43,26 @@ describe('Responsiveness', () => {
     //cycle through viewports and check appearance
     cy.wrap(viewports)
       .each(viewport =>{
+        // set width
         cy.viewport(viewport.width, 660)
 
+        // album picture visibility
         cy.get('.player__album')
           .should(viewport.album)
 
+        // album title visibility
         cy.get('p').contains("Nothing's playing")
           .should(viewport.albumTitle)
 
+        // controls visibility
         cy.get('.player__controls')
           .should(viewport.controls)
 
+        // actions visibility
         cy.get('.player__actions > .fa-heart')
         .should(viewport.actions)
 
+        // action menu visibility
         cy.get('.player__actions > .fa-ellipsis-h')
         .should(viewport.actionMenu)
       });

@@ -16,8 +16,11 @@ describe('App navigation', () => {
 
   //check out of box state of app
   it('default route', () => {
+    
+    // should have been routed to default page
     cy.url().should('eq', Cypress.config().baseUrl + '/discover')
-
+    
+    // title should be name of app
     cy.title().should('eq', 'Spootify')
   });
 
@@ -29,9 +32,11 @@ describe('App navigation', () => {
           .parent()
           .as('nav-button')
         
+        //click nav button
         cy.get('@nav-button')  
           .click()
           
+        // should change class to selected
         cy.get('@nav-button') 
           .should('have.class', 'sidebar__option--selected')
 
@@ -45,6 +50,7 @@ describe('App navigation', () => {
       .each(filter => {
         cy.visit(filter.route);
         
+        //component should be mounted here
         cy.get('.main__content__child')
           .find(filter.mainContentChild).should('exist')
       })

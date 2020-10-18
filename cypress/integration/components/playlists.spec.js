@@ -126,17 +126,21 @@ describe('Playlists component', () => {
     // create multiple playlists
     cy.wrap(playlists)
       .each(playlist =>{
+        // create new playlist
         cy.get('@new-playlist-button')
           .click()
 
+        // enter playlist name
         cy.get('.input')
           .type(playlist.name)
 
+        //pick a playlist icon
         if (playlist.icon != 'umbrella-beach'){
           cy.get('.fa-' + playlist.icon + '.playlists__create-content__icons__icon')
             .click()
         }
 
+        // save playlist
         cy.get('.button').contains('Save')
           .click()
       });
@@ -147,6 +151,8 @@ describe('Playlists component', () => {
     // delete all of the playlists
     cy.wrap(playlists)
       .each(playlist => {
+
+        // find delete via playlist name and click
         cy.get('p').contains(playlist.name)
          .parent()
          .parent()
