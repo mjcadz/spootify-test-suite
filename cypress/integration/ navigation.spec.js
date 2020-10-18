@@ -11,6 +11,7 @@ describe('App navigation', () => {
 
   beforeEach(() => {
     cy.visit('/')
+    cy.setViewport()
   });
 
   //check out of box state of app

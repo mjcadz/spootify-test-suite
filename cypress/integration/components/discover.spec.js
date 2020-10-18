@@ -9,6 +9,7 @@ describe('Discover component', () => {
     cy.route('POST', '/api/token', {"access_token" : "unnecessary while stubbing"})
 
     // setup stubs for requests to spotify. responses found in discoverResponses.json fixture
+    // responses are simple. name and image only.
     cy.fixture('discoverResponses').then((responses) => {
       cy.route('GET', '/v1/browse/new-releases?locale=en_US', responses.albumResponse)
       cy.route('GET', '/v1/browse/featured-playlists?locale=en_US', responses.playlistResponse)
@@ -16,6 +17,7 @@ describe('Discover component', () => {
     })
     
     cy.visit('/discover')
+    cy.setViewport()
     // wait until all routes have been stubbed
     cy.wait('@routes')
   });
@@ -42,11 +44,10 @@ describe('Discover component', () => {
         cy.get(row.id)
           .find('.discover-item__title')
           .should('contain', row.title)
-        
-        cy.wait(1000)
 
         cy.get(row.id)
           .find('.discover-item__art')
+          .scrollIntoView()
           .should('be.visible')
       });
   });

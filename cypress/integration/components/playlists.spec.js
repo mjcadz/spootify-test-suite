@@ -3,6 +3,7 @@ describe('Playlists component', () => {
 
   beforeEach(() => {
     cy.visit('/playlists')
+    cy.setViewport()
 
     cy.get('.button.playlists__header__add-playlist')
       .as('new-playlist-button')

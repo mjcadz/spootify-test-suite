@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "Testing Code Challenge - Test Automation Engineer",
   "scripts": {
-    "e2e": "cypress run --browser chrome",
-    "e2e:gui": "cypress open",
-    "e2e:record": "cypress run --record --browser chrome",
-    "e2e:chrome": "cypress run --browser chrome",
-    "e2e:edge": "cypress run --browser edge",
-    "e2e:firefox": "cypress run --browser firefox",
-    "e2e:headless": "cypress run"
+    "e2e:web": "cypress run --browser chrome --env viewport=web",
+    "e2e:mobile": "cypress run --browser chrome --env viewport=mobile",
+    "e2e:gui:web": "cypress open --env viewport=web",
+    "e2e:gui:mobile": "cypress open --env viewport=mobile",
+    "e2e:record:web": "cypress run --record --browser chrome --env viewport=web",
+    "e2e:record:mobile": "cypress run --record --browser chrome --env viewport=mobile"
   },
   "author": "Michael Cadzow",
   "license": "ISC",

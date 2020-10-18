@@ -1,4 +1,4 @@
-// Tests for responsive components
+// Tests for responsive components. doesn't take into account set viewport
 describe('Responsiveness', () => {
 
   beforeEach(() => {
