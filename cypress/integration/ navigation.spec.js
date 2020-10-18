@@ -1,3 +1,4 @@
+// Tests for navigation
 describe('App navigation', () => {
 
   const navFilters = [

@@ -1,3 +1,4 @@
+// Tests for playlists component
 describe('Playlists component', () => {
 
   beforeEach(() => {
@@ -151,7 +152,7 @@ describe('Playlists component', () => {
     // check all were deleted
     cy.get('.playlists').find('.playlist-item').should('have.length', 0)
     
-    // user can see no playlists message
+    // check user can see no playlists message
     cy.get('.playlists__empty')
       .find('h1')
       .should('have.text', "There aren't any playlists yet. Try adding a new one.")

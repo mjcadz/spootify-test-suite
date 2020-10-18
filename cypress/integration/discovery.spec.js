@@ -1,13 +1,14 @@
+//Tests for the discover component
 describe('Discover component', () => {
 
   beforeEach(() => {
     // test discover component with stubs instead of network
     cy.server()
 
-    // stub token
+    // stub token response
     cy.route('POST', '/api/token', {"access_token" : "unnecessary while stubbing"})
 
-    // setup discover stubs
+    // setup stubs for spotify gets
     cy.fixture('discoveryResponses').then((responses) => {
       cy.route('GET', '/v1/browse/new-releases?locale=en_US', responses.albumResponse)
       cy.route('GET', '/v1/browse/featured-playlists?locale=en_US', responses.playlistResponse)
@@ -15,11 +16,12 @@ describe('Discover component', () => {
     })
     
     cy.visit('/discover')
+    // wait until routes have been stubbed
     cy.wait('@routes')
   });
 
   // test content loads from request
-  it.only('content loads for each row', () => {
+  it('content loads for each row', () => {
     const rows = [
       {id: '#released', title: 'Test release', heading: 'RELEASED THIS WEEK'},
       {id: '#featured', title: 'Test playlist', heading: 'FEATURED PLAYLISTS'},
