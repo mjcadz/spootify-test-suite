@@ -1,6 +1,8 @@
 ![alt text](Spootify_Logo.png "Logo")
 # Spootify Test Suite
 
+My Cypress based test suite for the testing code challenge
+
 ## Setup
 ##### Install requirements
 ```
