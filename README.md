@@ -7,7 +7,7 @@
 yarn install
 ```
 ##### Start target application
-make sure the Spootify application is running and hosted at http://localhost:3000
+make sure the Spootify application is running and hosted at http://localhost:3000.
 
 ## Running tests
 
@@ -22,4 +22,5 @@ make sure the Spootify application is running and hosted at http://localhost:300
 | ```yarn e2e:headless``` | run tests headless in electron               |
 
 ## Reports
-The reports for this project can be found on the [Cypress Dashboard](https://dashboard.cypress.io/projects/hpu3z2/runs/2/specs)
+The reports for these tests can be found on the [Spootify Cypress Dashboard](https://dashboard.cypress.io/projects/hpu3z2/).
+Running ```yarn e2e:record``` saves the test data to the dashboard.

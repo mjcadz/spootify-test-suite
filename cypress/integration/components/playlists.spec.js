@@ -1,4 +1,4 @@
-// Tests for playlists component
+// Tests for the playlists page content
 describe('Playlists component', () => {
 
   beforeEach(() => {
@@ -10,11 +10,14 @@ describe('Playlists component', () => {
 
   // check the out of box state
   it('playlists default state', () => {
+    //check url
     cy.url().should('eq', Cypress.config().baseUrl + '/playlists')
-
+    
+    //check new playlist button is there
     cy.get('.button.playlists__header__add-playlist')
       .should('exist')
 
+    // check default no playlist message is there
     cy.get('.playlists__empty')
       .find('h1')
       .should('have.text', "There aren't any playlists yet. Try adding a new one.")
@@ -24,6 +27,7 @@ describe('Playlists component', () => {
   context('new playlist dialog', () => {
 
     beforeEach(() => {
+      //open dialog and save components
       cy.get('@new-playlist-button')
         .click()
 
@@ -40,7 +44,7 @@ describe('Playlists component', () => {
         .as('playlist-name-input')
     });
 
-    // check input behaviour
+    // check the input box behaviour
     it('name input', () => {
       const input = 'New Playlist 137&*?/<>'
 
@@ -56,7 +60,7 @@ describe('Playlists component', () => {
         .should('have.value', input)
     });
 
-    // check cancel behaviour
+    // check the cancel button behaviour
     it('cancel button', () => {
       cy.get('@dialog-title')
         .should('exist')
@@ -68,7 +72,7 @@ describe('Playlists component', () => {
         .should('not.exist')
     });
 
-    // check save behaviour
+    // check the save button behaviour
     it('save button', () => {
       cy.get('@save-button')
         .should('be.disabled')
@@ -81,7 +85,7 @@ describe('Playlists component', () => {
         .should('not.be.disabled')
     });
 
-    // switch between icons and check selection class works
+    // switch between icons and check selection works correctly
     it('switching icons', () => {
       const selected = 'playlists__create-content__icons__icon--selected'
       
@@ -108,8 +112,9 @@ describe('Playlists component', () => {
 
   });
    
-  // test the playlist list behaviour
+  // test the playlist list creation and deletion behaviour
   it('create and delete', () => {
+
     const playlists = [
       {name: 'Dream pop', icon: 'umbrella-beach'},
       {name: 'Metalcore', icon: 'dumbbell'},
@@ -117,7 +122,7 @@ describe('Playlists component', () => {
       {name: 'Synthwave', icon: 'running'}
     ]
 
-    // create playlists
+    // create multiple playlists
     cy.wrap(playlists)
       .each(playlist =>{
         cy.get('@new-playlist-button')
@@ -138,7 +143,7 @@ describe('Playlists component', () => {
     // check all were created
     cy.get('.playlists').find('.playlist-item').should('have.length', playlists.length)
 
-    // delete playlists
+    // delete all of the playlists
     cy.wrap(playlists)
       .each(playlist => {
         cy.get('p').contains(playlist.name)

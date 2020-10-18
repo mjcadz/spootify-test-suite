@@ -13,7 +13,7 @@ describe('Responsiveness', () => {
       {width: 1000, sidebarWidth: 225, titles: 'be.visible'},
     ]
     
-    //cycle through viewports
+    //cycle through viewports and check appearance
     cy.wrap(viewports)
       .each(viewport =>{
         cy.viewport(viewport.width, 660)
@@ -28,7 +28,7 @@ describe('Responsiveness', () => {
 
   });
 
-  //check responsiveness of the player
+  //check responsiveness of the player controls
   it('Player', () => {
     const viewports = [
       {width: 1050, album: 'be.visible', albumTitle: 'be.visible', controls: 'be.visible', actions: 'be.visible', actionMenu: 'not.be.visible'},
@@ -37,7 +37,7 @@ describe('Responsiveness', () => {
       {width: 450, album: 'not.be.visible', albumTitle: 'not.be.visible', controls: 'be.visible', actions: 'not.be.visible', actionMenu: 'be.visible'},
     ]
     
-    //cycle through viewports
+    //cycle through viewports and check appearance
     cy.wrap(viewports)
       .each(viewport =>{
         cy.viewport(viewport.width, 660)
