@@ -27,4 +27,4 @@ Running a script with 'record' saves the test data to the dashboard.
 
 ## Tests
 
-Located in [cypress/integration](../cypress/integration)
+Located in [cypress/integration](https://github.com/mjcadz/spootify-test-suite/tree/main/cypress/integration)
